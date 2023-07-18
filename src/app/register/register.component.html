@@ -1,0 +1,109 @@
+<section class="overflow-hidden mySec">
+    <div class="d-flex flex-row-reverse">
+        <img src="assets/web-logo.png" class="logooo me-5">
+    </div>
+    <div class="container text-white">
+        <div class="row p-5 justify-content-center">
+            <div class="col-8 bg-dark bg-opacity-50  p-5">
+                <form [formGroup]="registerform" (ngSubmit)="register(registerform)" class="col align-self-center">
+                    <div class="col-12 mb-3">
+                        <label for="inputEmail4" class="form-label">USER NAME</label>
+                        <input formControlName="username" type="text" class="form-control" placeholder="" id="inputEmail4">
+                        <div *ngIf="registerform.controls[ 'username'].invalid && registerform.controls[ 'username'].touched ">
+                            <span>
+                        <p class=" text-danger ">user name is required</p>
+                        </span>
+                        </div>
+                        <div *ngIf="errorOfUser">
+                            <span>
+                            <p class=" text-danger ">{{errorOfUser}}</p>
+                        </span>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mb-3">
+                        <label for="inputEmail4" class="form-label">EMAIL</label>
+                        <input formControlName="email" type="email" class="form-control" placeholder="" id="inputEmail4">
+                        <div *ngIf="registerform.controls[ 'email'].errors?.['required'] && registerform.controls[ 'email'].touched ">
+                            <span>
+                                <p class=" text-danger ">email is required</p>
+                            </span>
+                        </div>
+                        <div *ngIf="errorOfemail">
+                            <span>
+                              <p class=" text-danger ">{{errorOfemail}}</p>
+                          </span>
+                        </div>
+                        <div *ngIf=" registerform.controls[ 'email'].errors?.[ 'email'] ">
+                            <span>
+                              <p class=" text-danger ">this field must be email</p>
+                          </span>
+                        </div>
+                        <div *ngIf=" registerform.controls[ 'email'].errors?.[ 'pattern'] ">
+                            <span>
+                              <p class=" text-danger ">pattern is invalid must @egyptexpress.com.eg</p>
+                          </span>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mb-3 ">
+                        <label for="inputPassword4 " class="form-label ">PASSWORD</label>
+                        <input formControlName="password" type="password" class="form-control " placeholder=" " id="inputPassword4 ">
+                        <div *ngIf="registerform.controls[ 'password'].invalid && registerform.controls[ 'password'].touched ">
+                            <span>
+                          <p *ngIf=" registerform.controls[ 'password'].errors?.[ 'required'] " class=" text-danger ">password is required </p>
+                          <p  *ngIf=" registerform.controls[ 'password'].errors?.[ 'minlength'] && !registerform.controls[ 'password'].pristine " class=" text-danger ">password must has minLength is 8</p>
+                          </span>
+                        </div>
+
+                    </div>
+
+                    <div class="col-10 mb-3 ">
+                        <label for="inputState " class="form-label ">DEPARTMENT</label>
+                        <select formControlName="department" id="inputState " class="form-select ">
+                          <option selected>Choose Department...</option>
+                          <option value="IT Department ">IT Department</option>
+                          <option value="Customer Service Department ">Customer Service Department</option>
+                          <option value="Customs Department ">Customs Department</option>
+                          <option value="Retail Department ">Retail Department</option>
+                          <option value="Ground Operation Department ">Ground Operation Department</option>
+                          <option value="Airport ">Airport </option>
+                          <option value="DC ">DC </option>
+                          <option value="Collection Department ">Collection Department</option>
+                          <option value="Finance Department ">Finance Department</option>
+                          <option value="Sales Department ">Sales Department</option>
+                          <option value="Burchasing Department ">Burchasing Department</option>
+                          <option value="Internal Audit and Quality Department ">Internal Audit and Quality Department</option>
+                          <option value="HR Department ">HR Department</option>
+                        </select>
+                        <div *ngIf="registerform.controls[ 'department'].invalid && registerform.controls[ 'department'].touched ">
+                            <span>
+                        <p class=" text-danger ">department is required</p>
+                        </span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-10 mb-3 ">
+                        <label for="inputState " class="form-label ">IS_ADMIN?</label>
+                        <select formControlName="is_admin" id="inputState " class="form-select ">
+
+                        <option value="1"> IS_ADMIN</option>
+                        <option value="0">USER</option>
+
+                      </select>
+                        <div *ngIf="registerform.controls[ 'department'].invalid && registerform.controls[ 'department'].touched ">
+                            <span>
+                      <p class=" text-danger ">department is required</p>
+                      </span>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mb-3 ">
+                        <button type="submit " [disabled]="registerform.invalid " class="btn mybttn text-white ">register</button> </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

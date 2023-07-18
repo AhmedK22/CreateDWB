@@ -1,0 +1,145 @@
+<section>
+
+    <div class="container text-white">
+        <div class="row p-5 justify-content-center">
+            <div class="col-8 bg-dark bg-opacity-75 p-5 g-3">
+                <form [formGroup]="myform" (ngSubmit)="getinfo(myform)">
+                    <div class="d-flex justify-content-around mb-3">
+                        <div class="col-4">
+                            <label for="birthday">FROM:</label>
+                            <input type="date" id="birthday" name="birthday" formControlName="firstdate" class="form-control">
+                            <div *ngIf=" myform.controls[ 'firstdate'].invalid && myform.controls[ 'firstdate'].touched&&myform.controls[ 'firstdate'].errors ">
+                                <span>
+                              <p class=" text-danger ">this field is required</p>
+                              </span>
+                            </div>
+
+
+                        </div>
+                        <div class="col-4">
+
+                            <label for="birthday">TO:</label>
+                            <input type="date" id="birthday" name="birthday" formControlName="seconddate" class="form-control">
+                            <div *ngIf="myform.controls[ 'seconddate'].invalid && myform.controls[ 'seconddate'].touched ">
+                                <span>
+                      <p class=" text-danger ">this field is required</p>
+                      </span>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div *ngIf="errorOfDate">
+                        <p class="text-danger">{{errorOfDate}}</p>
+                    </div>
+                    <div class="col-10 mb-3 ">
+                        <label for="inputState " class="form-label ">DEPARTMENT</label>
+                        <br>
+
+
+                        <input type="checkbox" formControlName="ITDepartment" value="IT Department">
+                        <label> IT Department :</label><br>
+                        <input type="checkbox" formControlName="CustomerServiceDepartment" value="Customer Service Department">
+                        <label>Customer Service Department</label><br>
+                        <input type="checkbox" formControlName="CustomsDepartment" value="Customs Department">
+                        <label>Customs Department</label><br>
+                        <input type="checkbox" formControlName="RetailDepartment" value="Retail Department">
+                        <label>Retail Department</label><br>
+                        <input type="checkbox" formControlName="GroundOperationDepartment" value="Ground Operation Department">
+                        <label> Ground Operation Department</label><br>
+                        <input type="checkbox" formControlName="Airport" value="Airport">
+                        <label>Airport</label><br>
+                        <input type="checkbox" formControlName="DC" value="DC">
+                        <label> DC</label><br>
+                        <input type="checkbox" formControlName="CollectionDepartment" value="Collection Department">
+                        <label>Collection Department</label><br>
+                        <input type="checkbox" formControlName="FinanceDepartment" value="Finance Department">
+                        <label>Finance Department</label><br>
+                        <input type="checkbox" formControlName="SalesDepartment" value="Sales Department">
+                        <label> Sales Department</label><br>
+                        <input type="checkbox" formControlName="BurchasingDepartment" value="Burchasing Department">
+                        <label>Burchasing Department</label><br>
+                        <input type="checkbox" formControlName="InternalAuditandQualityDepartment" value="Internal Audit and Quality Department">
+                        <label>Internal Audit and Quality Department</label><br>
+                        <input type="checkbox" formControlName="HRDepartment" value="HR Department">
+                        <label>HR Department</label><br>
+
+
+
+
+                        <div *ngIf=messageOfDeptErr>
+                            <span>
+                               <p class="text-danger">{{messageOfDeptErr}}</p>
+                           </span>
+                        </div>
+                    </div>
+                    <button [disabled]="myform.invalid" class="btn btn-primary" type="submit"> submit</button>
+                </form>
+
+
+            </div>
+            <div class="w-100 bg-danger h-25 border border-2 rounded" *ngIf=errOfNoData>
+                <span>
+                   <p class="text-dark fs-3 text-center">{{errOfNoData}}</p>
+               </span>
+            </div>
+        </div>
+        <div class="my-2 p-2 bg-secondary countofdwb border border-2 border-dark rounded ">
+            #TOTAL NUMBER IS:<span class="text-white "> {{count}}</span>
+        </div>
+        <div>
+            <table id="excell-table" class="table table-striped ">
+                <thead>
+                    <tr>
+                        <th scope="col ">#</th>
+                        <th scope="col ">date</th>
+                        <th scope="col ">Name</th>
+                        <th scope="col ">Department</th>
+                        <th scope="col ">DWB Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of lastalldata ;index as i ">
+                        <td>{{i+1}}</td>
+                        <td>{{data.dataofcreate}}</td>
+                        <td>{{data.name}}</td>
+                        <td>{{data.department}}</td>
+                        <td>{{data.dwb}}</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+            <button (click)="imasexcell()" class="btn btn-primary">Export To Excell</button><br>
+            <button routerLink="/create" class=" my-2  btn btn-primary my-3">Back To Create Dwb</button>
+
+        </div>
+    </div>
+
+</section>
+<!--                        <select formControlName="department " id="inputState " class="form-select " multiple>
+                        <option selected >Choose Department...</option>
+                        <option value="IT Department ">IT Department</option>
+                        <option value="Customer Service Department ">Customer Service Department</option>
+                        <option value="Customs Department ">Customs Department</option>
+
+
+                        <option value="Retail Department ">Retail Department</option>
+
+
+                        <option value="Ground Operation Department ">Ground Operation Department</option>
+
+                        <option value="Airport ">Airport </option>
+
+                        <option value="DC ">DC </option>
+                        <option value="Collection Department ">Collection Department</option>
+
+                        <option value="Finance Department ">Finance Department</option>
+
+                        <option value="Sales Department ">Sales Department</option>
+
+                        <option value="Burchasing Department ">Burchasing Department</option>
+                        <option value="Internal Audit and Quality Department ">Internal Audit and Quality Department</option>
+                        <option value="HR Department ">HR Department</option>
+                      </select>-->

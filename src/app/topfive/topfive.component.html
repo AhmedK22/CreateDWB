@@ -1,0 +1,31 @@
+<div class="container p-5 firstsection">
+
+    <button (click)="gettopfive()" class="btn btn-primary my-3">Get Last Five Dwb</button>
+    <div *ngIf="messageoferror" class="alert alert-danger">
+        <h3>{{messageoferror}}</h3>
+    </div>
+
+    <button routerLink="/create" class=" float-end btn btn-primary my-3">Back To Create Dwb</button>
+
+
+</div>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">DWB</th>
+                <th scope="col">VIEW</th>
+
+            </tr>
+        </thead>
+        <tbody *ngFor="let data of topfivedata">
+            <tr>
+                <td #mynum>{{data.AirWayBill}}</td>
+                <td><button (click)="getdwb(mynum)" class="  mybtn btn btn-outline-secondary w-25 " aria-disabled="true ">View</button></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+</div>

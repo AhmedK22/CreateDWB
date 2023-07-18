@@ -1,0 +1,389 @@
+<div class="container firstsection">
+    <div class="row">
+        <div class="col-lg-2">
+            <img src="assets/web-logo.png" class="w-100">
+
+        </div>
+        <div class=" heading  align-items-center position-relative d-flex justify-content-center text-center mb-5">
+            <h2>CREATE YOUR DWB
+            </h2>
+            <h3 class="position-absolute">CREATE YOUR DWB
+            </h3>
+        </div>
+    </div>
+</div>
+<div class="container secondsection">
+
+    <form [formGroup]="createe " (ngSubmit)="create(createe) ">
+        <div class="bg-dark bg-opacity-25 p-2">
+            <div class="row  ">
+                <!--1-->
+                <div class="col-lg-6 ">
+                    <div class="my-3  d-flex justify-content-space-between">
+                        <input formControlName="ReceiversPhone" type="text " class="w-50 ">
+                        <label class="text-center">رقم تليفون المستلم(الارضى)</label>
+                    </div>
+                    <div class="my-3 d-flex justify-content-space-between">
+                        <input formControlName="ReceiversCompany" type="text " class="w-50">
+                        <label class="ms-5"><sup class="text-danger">*</sup>اسم الشركة</label>
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'ReceiversCompany'].invalid && createe.controls[ 'ReceiversCompany'].touched ">
+                            <p class="text-danger ">اسم الشركة مطلوب</p>
+                        </div>
+                    </div>
+
+                    <div class="my-3 d-flex justify-content-space-between">
+                        <input formControlName="ReceiversContactPerson" type="text " class="w-50 ">
+                        <label class="ms-5"><sup class="text-danger">*</sup>المرسل اليه </label>
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'ReceiversContactPerson'].invalid && createe.controls[ 'ReceiversContactPerson'].touched ">
+                            <p class="text-danger ">المرسل اليه مطلوب</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="my-3 d-flex justify-content-space-between">
+                        <input formControlName="ReceiversAddress1" type="text " class="w-50">
+                        <label class="ms-5"> <sup class="text-danger">*</sup> 1عنوان المستلم </label>
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'ReceiversAddress1'].invalid && createe.controls[ 'ReceiversAddress1'].touched ">
+                            <p class="text-danger ">عنوان المستلم مطلوب</p>
+
+                        </div>
+
+                    </div>
+                    <div class="my-3 d-flex justify-content-space-between">
+                        <input formControlName="ReceiversAddress2" type="text " class="w-50 ">
+                        <label class="ms-5"> 2عنوان المستلم</label>
+                    </div>
+                    <div class="my-3 d-flex justify-content-space-between">
+                        <input formControlName="ReceiversMobile" type="text " class="w-50">
+                        <label class="ms-5"><sup class="text-danger ">*</sup>رقم تليفون المستلم (الموبايل )</label>
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'ReceiversMobile'].invalid && createe.controls[ 'ReceiversMobile'].touched ">
+                            <span>
+                    <p class=" text-danger ">رقم تليفون المستلم(الموبايل) <br>مطلوب ولا يقل عن 8 ارقام</p>
+                    </span>
+                        </div>
+
+                    </div>
+
+                    <div class="my-3 d-flex justify-content-space-between">
+                        <input formControlName="SendersContactPerson" type="text " class="w-50">
+                        <label class="ms-5"><sup class="text-danger ">*</sup>الراسل</label>
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'SendersContactPerson'].invalid && createe.controls[ 'SendersContactPerson'].touched ">
+                            <span>
+                  <p class=" text-danger ">الراسل مطلوب</p>
+                  </span>
+                        </div>
+
+                    </div>
+                    <div class="my-3 d-flex justify-content-space-between">
+                        <input formControlName="SendersCompany" type="text " class="w-50">
+                        <label class="ms-5"><sup class="text-danger ">*</sup>  الشركه الراسله</label>
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'SendersCompany'].invalid && createe.controls[ 'SendersCompany'].touched ">
+                            <span>
+                <p class=" text-danger ">الشركه الراسله مطلوبه</p>
+                </span>
+                        </div>
+
+                    </div>
+                    <div class="my-3 d-flex justify-content-space-between">
+                        <input formControlName="SendersMobile" type="text " class="w-50">
+                        <label class="ms-5"><sup class="text-danger ">*</sup>رقم تليفون الراسل (الموبايل )</label>
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'SendersMobile'].invalid && createe.controls[ 'SendersMobile'].touched ">
+                            <span>
+              <p class=" text-danger ">رقم تليفون الراسل(الموبايل) <br>مطلوب ولا يقل عن 8 ارقام</p>
+              </span>
+                        </div>
+
+                    </div>
+                    <div class="my-3 d-flex justify-content-space-between">
+                        <input formControlName="SendersCity" type="text " class="w-50">
+                        <label class="ms-5"><sup class="text-danger ">*</sup> مدينة الراسل</label>
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'SendersCity'].invalid && createe.controls[ 'SendersCity'].touched ">
+                            <span>
+            <p class=" text-danger ">رقم تليفون المستلم(الموبايل) <br>مطلوب ولا يقل عن 8 ارقام</p>
+            </span>
+                        </div>
+
+                    </div>
+                    <div class="my-3 d-flex justify-content-space-between">
+                        <input formControlName="ReceiversMobile" type="text " class="w-50">
+                        <label class="ms-5"><sup class="text-danger ">*</sup>رقم تليفون المستلم (الموبايل )</label>
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'ReceiversMobile'].invalid && createe.controls[ 'ReceiversMobile'].touched ">
+                            <span>
+          <p class=" text-danger ">رقم تليفون المستلم(الموبايل) <br>مطلوب ولا يقل عن 8 ارقام</p>
+          </span>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <!--2-->
+
+
+                <div class="col-lg-6 ">
+
+
+
+
+                    <div class="my-3 d-flex justify-content-space-between">
+                        <input formControlName="Destination" type="text " class="w-50 ">
+                        <label class="ms-5"><sup class="text-danger">*</sup>الوجهة</label>
+                    </div>
+                    <div class="my-3 d-flex justify-content-space-between">
+                        <input formControlName="GoodsDescription" type="text " class="w-50 ">
+                        <label class="ms-5">المحتويات</label>
+                    </div>
+
+
+                    <div class="my-3 d-flex justify-content-space-between">
+                        <input formControlName="Weight" type=" text " class="w-50 ">
+                        <label class="ms-5"><sup class="text-danger">*</sup>الوزن</label>
+
+                    </div>
+
+                    <div class="my-3 d-flex justify-content-space-between">
+                        <input formControlName="SpecialInstruction" type="text " class="w-50  ">
+                        <label class="ms-5">تعليمات خاصه</label>
+                    </div>
+                    <div class="my-3 d-flex justify-content-space-between">
+                        <input formControlName="ShipperReference" type="text " class="w-50 ">
+                        <label class="ms-5">الرقم المرجعى</label>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="my-4 ms-3 ">
+                <re-captcha (resolved)="resolved($event)" siteKey="6LfORf0gAAAAAAWROF3tGsujIvbjhj27x6HULqrj">
+
+                </re-captcha>
+                <span *ngIf="errorrobot==true" class="fs-3 text-danger">ARE YOU A ROBOT?</span>
+            </div>
+            <div class="container">
+                <div class="col d-flex flex-row-reverse">
+                    <a routerLink="/login" class="btn mybttn me-5 mb-3" role="button" aria-disabled="true">خروج</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="my-2 d-flex flex-row-reverse">
+            <button type="submit " [disabled]="createe.invalid==true " class="btn btn-dark w-25 mt-3"> انشاء</button>
+        </div>
+
+
+
+    </form>
+    <div class="my-2 d-flex flex-row-reverse">
+        <button (click)="lastpolica() " class="mybtn btn btn-outline-secondary w-25 "> استعاده اخر رقم بوليصه</button>
+    </div>
+
+
+
+</div>
+
+<div class=" mylastpolica bg-secondary bg-opacity-50">
+
+    <div class="w-100 h-100 d-flex align-items-center justify-content-center ">
+        <div class="bg-light w-25 ">
+            <p class="text-center fs-2 ">بوليصتك الاخيره</p><br>
+            <p class=" text-dark text-center ">{{mylastpolica}}</p>
+            <button class=" btn mybttn m-5 " (click)="backtoform() ">تم</button>
+
+        </div>
+    </div>
+</div>
+
+<div class=" mypolica bg-secondary bg-opacity-50 ">
+
+    <div class="w-100 h-100 d-flex align-items-center justify-content-center ">
+        <div class="bg-light w-25 d-flex vv">
+            <p class="text-center fs-2 ">البوليصه هى </p><br>
+            <p class="text-dark text-center">{{mypolica}}</p>
+            <button class=" btn mybttn  m-auto" (click)="backtoform2() ">تم</button>
+            <div class="my-2 m-auto">
+                <button (click)="fullpolica() " class="btn btn-secondary ">رؤيه البوليصه</button>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+
+
+
+<section>
+    <div class="fullpolica">
+        <div class="container ">
+            <div class="row justify-content-center  me-5 pe-5">
+                <div class="col-lg-6 ">
+                    <table class="table">
+                        <tr>
+                            <td class="text-center w-50" colspan="2 ">
+                                <h1>{{createe.value.Origin}}</h1>
+                            </td>
+                            <td class="text-center " colspan="2 ">
+                                <img src="assets/web-logo.png " alt=" " class="w-50">
+                            </td>
+
+                        </tr>
+                        <tr class="">
+                            <td class="my-3 " colspan="2 ">
+                                <div class="d-flex flex-row mb-3">
+                                    <div class="me-4 text-uppercase fw-bold">ORGN</div>
+                                    <div class=""> {{createe.value.SendersCity}}</div>
+                                </div>
+                            </td>
+
+                            <td colspan="2 ">
+                                <div class="d-flex flex-row mb-3">
+                                    <div class="me-4 text-uppercase fw-bold"> DEST</div>
+                                    <div>{{createe.value.Destination}}</div>
+                                </div>
+                            </td>
+
+
+                        </tr>
+                        <tr class="">
+                            <td class="my-3 " colspan="2 ">
+                                <div class="d-flex flex-row ">
+                                    <div class="me-4 text-uppercase fw-bold"> REF</div>
+                                    <div class="vll"> {{createe.value.ShipperReference}}</div>
+                                </div>
+                            </td>
+
+                            <td colspan="2 ">
+                                <div class="d-flex flex-row " colspan="2 ">
+                                    <div class="me-4 text-uppercase fw-bold">PCS </div>
+                                    <div class="me-3">{{createe.value.NumberofPeices}}</div>
+                                    <div class="me-4 text-uppercase fw-bold">WT</div>
+                                    <div>{{createe.value.Weight}}</div>
+                                </div>
+                            </td>
+
+
+                        </tr>
+                        <tr class="">
+                            <td colspan="2 ">
+                                <div class="d-flex flex-row ">
+                                    <div class="me-4 text-uppercase fw-bold "> DOX</div>
+                                    <div> {{createe.controls['ProductType'].value}}</div>
+                                </div>
+                            </td>
+
+                            <td colspan="2 ">
+                                <div class="d-flex flex-row ">
+                                    <div class="me-4 text-uppercase fw-bold">TO Collect</div>
+                                    <div>{{createe.controls['CODAmount'].value}}</div>
+                                </div>
+                            </td>
+
+
+                        </tr>
+                        <tr class="">
+                            <td colspan="2 ">
+                                <div class="ms-2 lh-lg">
+                                    <b class="text-uppercase">SENDER :</b>
+                                    <br>{{createe.value.SendersCompany}}
+                                    <br>{{createe.value.SendersAddress1}}
+
+                                    <br>PH: {{createe.value.SendersMobile}},{{createe.value.SendersPhone}}
+                                </div>
+
+
+                            </td>
+                            <td colspan="2 ">
+                                <div *ngIf="formdata" class="ms-2 lh-lg">
+                                    <b class="text-uppercase">RECEIVER :</b>
+                                    <br> {{formdata.ReceiversCompany}}
+                                    <br>{{formdata.ReceiversAddress1}}
+
+                                    <br>PH: {{formdata.ReceiversAddress1}},{{formdata.ReceiversPhone}} <br>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+
+                                <div class="d-flex flex-row ">
+                                    <div class=" me-2 text-uppercase fw-bold ">DESCRIPTION : </div>
+                                    <div> {{createe.value.GoodsDescription}}</div>
+                                </div>
+
+                                <div class="d-flex flex-row ">
+                                    <div class=" me-2 text-uppercase fw-bold ">INSTRUCTIONS : </div>
+                                    <div>{{createe.value.SpecialInstruction}}</div>
+                                </div>
+
+
+
+
+                            </td>
+
+                        </tr>
+                        <tr class="">
+                            <td class="text-uppercase fw-bold text-start ps-3" colspan="4 ">
+                                <div class="d-flex flex-row ">
+                                    <div class="pt-2 pb-2 ps-3 pe-5">
+                                        ACC# test
+                                    </div>
+                                    <div class="d-flex" style="height: 50px;  border:black;">
+                                        <div class="vr"></div>
+                                    </div>
+                                    <div class="pt-2 pb-2 ps-5 pe-5">
+                                        AirWayBill
+                                    </div>
+                                    <div class="d-flex" style="height: 50px;">
+                                        <div class="vr"></div>
+                                    </div>
+                                    <div class="pt-2 pb-2 ps-4 ">
+                                        Date:{{date}}
+                                    </div>
+                                </div>
+
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="4 ">
+                                <h1 class="text-center ">{{amw}}</h1>
+                                <div class="d-flex justify-content-center">
+                                    <svg class="" id="xx"></svg>
+                                </div>
+
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="d-flex flex-row-reverse mt-3">
+            <div class=" me-5 pe-5 mb-3">
+                <button (click)="printdwb()" class="btn mybttn w-100 ms-3 printy">PRINT</button>
+            </div>
+            <div>
+                <button (click)="backtoform3()" class="btn mybttn w-100 ok">OK</button>
+            </div>
+        </div>
+    </div>
+</section>

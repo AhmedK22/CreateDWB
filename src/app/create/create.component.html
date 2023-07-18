@@ -1,0 +1,739 @@
+<div class="container firstsection">
+    <div class="row">
+        <div class="col-lg-2">
+            <img src="assets/web-logo.png" class="w-100">
+
+        </div>
+        <div class=" heading  align-items-center position-relative d-flex justify-content-center text-center mb-5">
+            <h2>CREATE YOUR DWB
+            </h2>
+            <h3 class="position-absolute">CREATE YOUR DWB
+            </h3>
+        </div>
+        <!-- <div class="col-lg-6 d-flex align-items-center justify-content-center ms-5 ps-3 ">
+        <h1 class="  ">CREATE YOUR AWB</h1>
+    </div>-->
+    </div>
+</div>
+<div class="alert alert-danger" *ngIf="errorOfInternet"> 
+    <h1>CONNECTION ERROR</h1>
+</div>
+<div class="alert alert-danger"*ngIf="errorOfCreateDwb">
+    <h1>{{errorOfCreateDwb}}</h1>
+</div>
+<div class="alert alert-danger"*ngIf="badreq">
+    <h1>{{badreq}}</h1>
+</div>
+<div class="container secondsection">
+
+    <form [formGroup]="createe" class="" (ngSubmit)="create(createe) ">
+
+
+        <div class="bg-dark bg-opacity-25 p-2">
+            <div class="row ">
+                <!--1-->
+                <div class="col-lg-6 ">
+
+                    <div class="my-3 ">
+                        <label>ReceiversCompany<sup class="text-danger">*</sup></label>
+                        <input formControlName="ReceiversCompany" type="text " class="w-50 float-end ">
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'ReceiversCompany'].invalid && createe.controls[ 'ReceiversCompany'].touched ">
+                            <p class="text-danger ">ReceiversCompany is required</p>
+
+                        </div>
+                        <div class="my-3 ">
+                            <label>ReceiversContactPerson<sup class="text-danger">*</sup></label>
+                            <input formControlName="ReceiversContactPerson" type="text " class="w-50 float-end ">
+                            <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'ReceiversContactPerson'].invalid && createe.controls[ 'ReceiversContactPerson'].touched ">
+                                <p class="text-danger ">ReceiversContactPerson <br>is required</p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="my-3 ">
+                        <label>ReceiversAddress1<sup class="text-danger">*</sup></label>
+                        <input formControlName="ReceiversAddress1" type="text " class="w-50 float-end ">
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'ReceiversAddress1'].invalid && createe.controls[ 'ReceiversAddress1'].touched ">
+                            <p class="text-danger ">ReceiversAddress1 is required</p>
+
+                        </div>
+                    </div>
+                    <div class="my-3 ">
+                        <label>ReceiversAddress2</label>
+                        <input formControlName="ReceiversAddress2" type="text " class="w-50 float-end ">
+                    </div>
+                    <div class="my-3 ">
+                        <label>ReceiversMobile<sup class="text-danger ">*</sup></label>
+                        <input formControlName="ReceiversMobile" type="text " class="w-50 float-end ">
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'ReceiversMobile'].invalid && createe.controls[ 'ReceiversMobile'].touched ">
+                            <span>
+                  <p class=" text-danger ">ReceiversMobile is required and consists of 8 digits atleast</p>
+                  </span>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="my-3 ">
+                        <label>SendersContactPerson <sup class="text-danger">*</sup></label>
+                        <input formControlName="SendersContactPerson" type="text " class="w-50 float-end ">
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls['SendersContactPerson'].invalid && createe.controls['SendersContactPerson'].touched ">
+                            <p class="text-danger ">Sender is required</p>
+
+                        </div>
+                    </div>
+                    <div class="my-3 ">
+                        <label>SendersCompany <sup class="text-danger">*</sup></label>
+                        <input formControlName="SendersCompany" type="text " class="w-50 float-end ">
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls['SendersCompany'].invalid && createe.controls['SendersCompany'].touched ">
+                            <p class="text-danger ">SendersCompany is required</p>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <!--2-->
+                <div class="col-lg-6 ">
+
+                    <div class="my-3 ">
+                        <label>SendersMobile <sup class="text-danger">*</sup></label>
+                        <input formControlName="SendersMobile" type="text " class="w-50 float-end ">
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls['SendersMobile'].invalid && createe.controls['SendersMobile'].touched ">
+                            <span>
+                        <p class=" text-danger ">SendersMobile is required and consists of 8 digits atleast</p>
+                        </span>
+
+                        </div>
+                    </div>
+
+                    <div class="my-3 ">
+                        <label>SendersCity <sup class="text-danger">*</sup></label>
+                        <input formControlName="SendersCity" type="text " class="w-50 float-end ">
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls['SendersCity'].invalid && createe.controls['SendersCity'].touched ">
+                            <p class="text-danger ">SendersCity is required</p>
+
+                        </div>
+                    </div>
+                    <div class="my-3 ">
+                        <label>NumberofPeices <sup class="text-danger">*</sup></label>
+                        <input formControlName="NumberofPeices" type="text " class="w-50 float-end ">
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls['NumberofPeices'].invalid && createe.controls['NumberofPeices'].touched ">
+                            <p class="text-danger ">NumberofPeices is required</p>
+
+                        </div>
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'NumberofPeices'].errors?.['pattern']&&createe.controls['NumberofPeices'].invalid && createe.controls['NumberofPeices'].touched ">
+                            <p class="text-danger ">NumberofPeices must be integer</p>
+
+                        </div>
+                    </div>
+
+
+                    <div class="my-3 ">
+                        <label>Destination<sup class="text-danger">*</sup></label>
+                        <input formControlName="Destination" type="text " class="w-50 float-end ">
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'Destination'].invalid && createe.controls[ 'Destination'].touched ">
+                            <p class="text-danger ">Destination is required</p>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="my-3 ">
+                        <label>GoodsDescription</label>
+                        <input formControlName="GoodsDescription" type="text " class="w-50 float-end ">
+                    </div>
+
+
+                    <div class="my-3 ">
+                        <label>Weight<sup class="text-danger ">*</sup></label>
+                        <input formControlName="Weight" type=" text " class="w-50 float-end "><br>
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'Weight'].errors?.['errorOfWeight']&&createe.controls[ 'Weight'].invalid && createe.controls[ 'Weight'].touched">
+                            <p class="text-danger ">weight must be greater than 0</p>
+
+                        </div>
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'Weight'].errors?.['pattern']&&createe.controls[ 'Weight'].invalid && createe.controls[ 'Weight'].touched">
+                            <p class="text-danger ">weight must be integer</p>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="my-3 ">
+                        <label>SpecialInstruction <sup class="text-danger ">*</sup></label>
+                        <select class="w-50 float-end" formControlName="SpecialInstruction">
+                          <option value="other">other</option>
+                          <option value="pack">pack</option>
+                        </select>
+                        <div class="border border-2 border-danger w-50 " *ngIf="createe.controls[ 'SpecialInstruction'].invalid && createe.controls[ 'SpecialInstruction'].touched ">
+                            <p class="text-danger ">SpecialInstruction is required</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="my-2 ">
+            <button type="submit " [disabled]="createe.invalid==true " class="btn btn-dark w-25 mt-3"> CREATE DWB</button>
+        </div>
+
+
+    </form>
+
+
+    <!--<div class="my-2 ">
+        <button (click)="lastpolica() " class="mybtn btn btn-outline-secondary w-25 "> RETRIVE LAST DWB</button>
+    </div>-->
+    <div *ngIf="isAdmin">
+        <button routerLink="/info" class="mybtn btn btn-outline-secondary w-25 " aria-disabled="true ">Get Information</button>
+    </div>
+    <div>
+        <button routerLink="/topfive" class="mybtn btn btn-outline-secondary w-25 " aria-disabled="true ">Get Your Last five Dwb</button>
+    </div>
+    <div class="container ">
+        <div class="col d-flex flex-row-reverse ">
+            <button (click)="logout()" class="btn mybttn me-5 mb-3 " role="button " aria-disabled="true ">logout</button>
+            <button *ngIf="isAdmin" routerLink="/register" class="btn mybttn me-5 mb-3 ">register </button><br>
+            <button *ngIf="isAdmin" routerLink="/checkemail" class="btn mybttn me-5 mb-3 ">reset password </button><br>
+        </div>
+    </div>
+
+
+
+
+</div>
+<div class=" mylastpolica bg-secondary bg-opacity-50 ">
+
+
+    <div class="w-100 h-100 d-flex align-items-center justify-content-center ">
+        <div class="bg-light w-25 ">
+            <p class="text-center fs-2 ">YOUR LAST DWB</p><br>
+            <p class=" text-dark text-center ">{{mylastpolica}}</p>
+            <button class=" btn mybttn ms-3 mb-2 " (click)="backtoform() ">OK</button>
+
+        </div>
+    </div>
+
+</div>
+<div class=" mypolica bg-secondary bg-opacity-50 ">
+
+    <div class="w-100 h-100 d-flex align-items-center justify-content-center ">
+        <div class="bg-light w-25 ">
+            <p class="text-center fs-2 ">YOUR DWB IS </p><br>
+            <p class="text-dark text-center ">{{mypolica}}</p>
+            <button class=" btn mybttn ms-3 mb-2 " (click)="backtoform2() ">OK</button>
+            <div class="my-2 ">
+                <button (click)="fullpolica() " class="btn btn-secondary ms-1 ">  VIEW DWB</button>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+<section class="fullpolica">
+
+    <div class="">
+        <div class="row">
+            <!--1-->
+            <div class=" col-sm-4 ">
+                <div class=" ">
+                    <div class="">
+                        <div class="">
+                            <div class="">
+                                <table class="">
+                                    <tr>
+                                        <td class="text-center w-50" colspan="2 ">
+                                            <h1>{{formdata.Origin}}</h1>
+                                        </td>
+                                        <td class="text-center " colspan="2 ">
+                                            <img src="assets/web-logo.png " alt=" " class="w-50">
+                                        </td>
+
+                                    </tr>
+                                    <tr class="">
+                                        <td class="my-3 " colspan="2 ">
+                                            <div class="d-flex flex-row mb-3">
+                                                <div class="me-2 text-uppercase fw-bold">ORGN</div>
+                                                <div class=""> {{formdata.SendersCity}}</div>
+                                            </div>
+                                        </td>
+
+                                        <td colspan="2 ">
+                                            <div class="d-flex flex-row mb-3">
+                                                <div class="me-2 text-uppercase fw-bold"> DEST</div>
+                                                <div>{{formdata.Destination}}</div>
+                                            </div>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr class="">
+                                        <td class="my-3 " colspan="2 ">
+                                            <div class="d-flex flex-row ">
+                                                <div class="me-2 text-uppercase fw-bold"> REF</div>
+                                                <div class="vll"> {{formdata.ShipperReference}}</div>
+                                            </div>
+                                        </td>
+
+                                        <td colspan="2 ">
+                                            <div class="d-flex flex-row " colspan="2 ">
+                                                <div class="me-2 text-uppercase fw-bold">PCS </div>
+                                                <div class="me-2">{{formdata.NumberofPeices}}</div>
+                                                <div class="me-2 text-uppercase fw-bold">WT</div>
+                                                <div>{{formdata.Weight}}</div>
+                                            </div>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr class="">
+                                        <td colspan="2 ">
+                                            <div class="d-flex flex-row ">
+                                                <div class="me-2 text-uppercase fw-bold "> DOX</div>
+                                                <div> {{createe.controls['ProductType'].value}}</div>
+                                            </div>
+                                        </td>
+
+                                        <td colspan="2 ">
+                                            <div class="d-flex flex-row ">
+                                                <div class="me-2 text-uppercase fw-bold">TO Collect</div>
+                                                <div>{{createe.controls['CODAmount'].value}}</div>
+                                            </div>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr class="">
+                                        <td colspan="2 ">
+                                            <div class="ms-2 lh-lg">
+                                                <b class="text-uppercase">SENDER :</b>
+                                                <br>{{formdata.SendersContactPerson}}
+                                                <br>{{formdata.SendersCompany}}
+                                                <br>{{formdata.SendersAddress1}}
+
+                                                <br>PH: {{formdata.SendersMobile}},{{createe.value.SendersPhone}}
+                                            </div>
+
+
+                                        </td>
+                                        <td colspan="2 ">
+                                            <div *ngIf="formdata" class="ms-1 lh-lg">
+                                                <b class="text-uppercase">RECEIVER :</b>
+                                                <br> {{formdata.ReceiversContactPerson}}
+                                                <br> {{formdata.ReceiversCompany}}
+                                                <br>{{formdata.ReceiversAddress1}}
+
+                                                <br>PH: {{formdata.ReceiversMobile}},{{formdata.ReceiversPhone}} <br>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+
+                                            <div class="d-flex flex-row ">
+                                                <div class=" me-1 text-uppercase fw-bold ">DESCRIPTION : </div>
+                                                <div> {{formdata.GoodsDescription}}</div>
+                                            </div>
+
+                                            <div class="d-flex flex-row ">
+                                                <div class=" me-1 text-uppercase fw-bold ">INSTRUCTIONS : </div>
+                                                <div>{{formdata.SpecialInstruction}}</div>
+                                            </div>
+
+
+
+
+                                        </td>
+
+                                    </tr>
+                                    <tr class="">
+                                        <td class="text-uppercase fw-bold text-start ps-3" colspan="4 ">
+                                            <div class="d-flex flex-row ">
+                                                <div class="pt-2 pb-2 ps-3 pe-5">
+                                                    ACC# test
+                                                </div>
+                                                <div class="d-flex" style="height: 50px;  border:black;">
+                                                    <div class="vr"></div>
+                                                </div>
+                                                <div class="pt-2 pb-2 ps-2 pe-2">
+                                                    AirWayBill
+                                                </div>
+                                                <div class="d-flex" style="height: 50px;">
+                                                    <div class="vr"></div>
+                                                </div>
+                                                <div class="pt-2 pb-2 ps-1 ">
+                                                    Date:{{date}}
+                                                </div>
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <h1 class="text-center ">{{amw}}</h1>
+                                            <div class="d-flex justify-content-center">
+                                                <svg class="" id="xx"></svg>
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!--2-->
+            <div class="col-sm-4  ">
+                <div class="">
+                    <div class="container ">
+                        <div class="">
+                            <div class="">
+                                <table class="">
+                                    <tr>
+                                        <td class="text-center w-50" colspan="2 ">
+                                            <h1>{{formdata.Origin}}</h1>
+                                        </td>
+                                        <td class="text-center " colspan="2">
+                                            <img src="assets/web-logo.png " alt=" " class="w-50">
+                                        </td>
+
+                                    </tr>
+                                    <tr class="">
+                                        <td class="my-3 " colspan="2">
+                                            <div class="d-flex flex-row mb-3">
+                                                <div class="me-2 text-uppercase fw-bold">ORGN</div>
+                                                <div class=""> {{formdata.SendersCity}}</div>
+                                            </div>
+                                        </td>
+
+                                        <td colspan="2 ">
+                                            <div class="d-flex flex-row mb-3">
+                                                <div class="me-2 text-uppercase fw-bold"> DEST</div>
+                                                <div>{{formdata.Destination}}</div>
+                                            </div>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr class="">
+                                        <td class="my-3 " colspan="2 ">
+                                            <div class="d-flex flex-row ">
+                                                <div class="me-2 text-uppercase fw-bold"> REF</div>
+                                                <div class="vll"> {{formdata.ShipperReference}}</div>
+                                            </div>
+                                        </td>
+
+                                        <td colspan="2 ">
+                                            <div class="d-flex flex-row " colspan="2 ">
+                                                <div class="me-2 text-uppercase fw-bold">PCS </div>
+                                                <div class="me-2">{{createe.value.NumberofPeices}}</div>
+                                                <div class="me-2 text-uppercase fw-bold">WT</div>
+                                                <div>{{formdata.Weight}}</div>
+                                            </div>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr class="">
+                                        <td colspan="2 ">
+                                            <div class="d-flex flex-row ">
+                                                <div class="me-2 text-uppercase fw-bold "> DOX</div>
+                                                <div> {{createe.controls['ProductType'].value}}</div>
+                                            </div>
+                                        </td>
+
+                                        <td colspan="2 ">
+                                            <div class="d-flex flex-row ">
+                                                <div class="me-2 text-uppercase fw-bold">TO Collect</div>
+                                                <div>{{createe.controls['CODAmount'].value}}</div>
+                                            </div>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr class="">
+                                        <td colspan="2 ">
+                                            <div class="ms-2 lh-lg">
+                                                <b class="text-uppercase">SENDER :</b>
+                                                <br>{{formdata.SendersContactPerson}}
+                                                <br>{{formdata.SendersCompany}}
+                                                <br>{{formdata.SendersAddress1}}
+
+                                                <br>PH: {{formdata.SendersMobile}},{{createe.value.SendersPhone}}
+                                            </div>
+
+
+                                        </td>
+                                        <td colspan="2 ">
+                                            <div *ngIf="formdata" class="ms-2 lh-lg">
+                                                <b class="text-uppercase">RECEIVER :</b>
+                                                <br> {{formdata.ReceiversContactPerson}}
+                                                <br> {{formdata.ReceiversCompany}}
+                                                <br>{{formdata.ReceiversAddress1}}
+
+                                                <br>PH: {{formdata.ReceiversMobile}},{{formdata.ReceiversPhone}} <br>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+
+                                            <div class="d-flex flex-row ">
+                                                <div class=" me-1 text-uppercase fw-bold ">DESCRIPTION : </div>
+                                                <div> {{formdata.GoodsDescription}}</div>
+                                            </div>
+
+                                            <div class="d-flex flex-row ">
+                                                <div class=" me-1 text-uppercase fw-bold ">INSTRUCTIONS : </div>
+                                                <div>{{formdata.SpecialInstruction}}</div>
+                                            </div>
+
+
+
+
+                                        </td>
+
+                                    </tr>
+                                    <tr class="">
+                                        <td class="text-uppercase fw-bold text-start ps-3" colspan="4 ">
+                                            <div class="d-flex flex-row ">
+                                                <div class="pt-2 pb-2 ps-2 pe-2">
+                                                    ACC# test
+                                                </div>
+                                                <div class="d-flex" style="height: 50px;  border:black;">
+                                                    <div class="vr"></div>
+                                                </div>
+                                                <div class="pt-2 pb-2 ps-2 pe-2">
+                                                    AirWayBill
+                                                </div>
+                                                <div class="d-flex" style="height: 50px;">
+                                                    <div class="vr"></div>
+                                                </div>
+                                                <div class="pt-2 pb-2 ps-2 ">
+                                                    Date:{{date}}
+                                                </div>
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4 ">
+                                            <h1 class="text-center ">{{amw}}</h1>
+                                            <div class="d-flex justify-content-center">
+                                                <svg class="" id="yy"></svg>
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!--3-->
+            <div class=" col-sm-4  ">
+                <div class="">
+                    <div class="container ">
+                        <div class="">
+                            <div class="">
+                                <table class="">
+                                    <tr>
+                                        <td class="text-center w-50" colspan="2 ">
+                                            <h1>{{formdata.Origin}}</h1>
+                                        </td>
+                                        <td class="text-center " colspan="2 ">
+                                            <img src="assets/web-logo.png " alt=" " class="w-50">
+                                        </td>
+
+                                    </tr>
+                                    <tr class="">
+                                        <td class="my-3 " colspan="2 ">
+                                            <div class="d-flex flex-row mb-3">
+                                                <div class="me-2 text-uppercase fw-bold">ORGN</div>
+                                                <div class=""> {{formdata.SendersCity}}</div>
+                                            </div>
+                                        </td>
+
+                                        <td colspan="2 ">
+                                            <div class="d-flex flex-row mb-3">
+                                                <div class="me-2 text-uppercase fw-bold"> DEST</div>
+                                                <div>{{formdata.Destination}}</div>
+                                            </div>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr class="">
+                                        <td class="my-3 " colspan="2 ">
+                                            <div class="d-flex flex-row ">
+                                                <div class="me-2 text-uppercase fw-bold"> REF</div>
+                                                <div class="vll"> {{formdata.ShipperReference}}</div>
+                                            </div>
+                                        </td>
+
+                                        <td colspan="2 ">
+                                            <div class="d-flex flex-row " colspan="2 ">
+                                                <div class="me-2 text-uppercase fw-bold">PCS </div>
+                                                <div class="me-2">{{createe.value.NumberofPeices}}</div>
+                                                <div class="me-2 text-uppercase fw-bold">WT</div>
+                                                <div>{{formdata.Weight}}</div>
+                                            </div>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr class="">
+                                        <td colspan="2 ">
+                                            <div class="d-flex flex-row ">
+                                                <div class="me-2 text-uppercase fw-bold "> DOX</div>
+                                                <div> {{createe.controls['ProductType'].value}}</div>
+                                            </div>
+                                        </td>
+
+                                        <td colspan="2 ">
+                                            <div class="d-flex flex-row ">
+                                                <div class="me-2 text-uppercase fw-bold">TO Collect</div>
+                                                <div>{{createe.controls['CODAmount'].value}}</div>
+                                            </div>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr class="">
+                                        <td colspan="2 ">
+                                            <div class="ms-2 lh-lg">
+                                                <b class="text-uppercase">SENDER :</b>
+                                                <br>{{formdata.SendersContactPerson}}
+                                                <br>{{formdata.SendersCompany}}
+                                                <br>{{formdata.SendersAddress1}}
+
+                                                <br>PH: {{formdata.SendersMobile}},{{createe.value.SendersPhone}}
+                                            </div>
+
+
+                                        </td>
+                                        <td colspan="2 ">
+                                            <div *ngIf="formdata" class="ms-2 lh-lg">
+                                                <b class="text-uppercase">RECEIVER :</b>
+                                                <br> {{formdata.ReceiversContactPerson}}
+                                                <br> {{formdata.ReceiversCompany}}
+                                                <br>{{formdata.ReceiversAddress1}}
+
+                                                <br>PH: {{formdata.ReceiversMobile}},{{formdata.ReceiversPhone}} <br>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+
+                                            <div class="d-flex flex-row ">
+                                                <div class=" me-1 text-uppercase fw-bold ">DESCRIPTION : </div>
+                                                <div> {{formdata.GoodsDescription}}</div>
+                                            </div>
+
+                                            <div class="d-flex flex-row ">
+                                                <div class=" me-1 text-uppercase fw-bold ">INSTRUCTIONS : </div>
+                                                <div>{{formdata.SpecialInstruction}}</div>
+                                            </div>
+
+
+
+
+                                        </td>
+
+                                    </tr>
+                                    <tr class="">
+                                        <td class="text-uppercase fw-bold text-start ps-3" colspan="4 ">
+                                            <div class="d-flex flex-row ">
+                                                <div class="pt-2 pb-2 ps-2 pe-2">
+                                                    ACC# test
+                                                </div>
+                                                <div class="d-flex" style="height: 50px;  border:black;">
+                                                    <div class="vr"></div>
+                                                </div>
+                                                <div class="pt-2 pb-2 ps-2 pe-2">
+                                                    AirWayBill
+                                                </div>
+                                                <div class="d-flex" style="height: 50px;">
+                                                    <div class="vr"></div>
+                                                </div>
+                                                <div class="pt-2 pb-2 ps-2 ">
+                                                    Date:{{date}}
+                                                </div>
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4 ">
+                                            <h1 class="text-center ">{{amw}}</h1>
+                                            <div class="d-flex justify-content-center">
+                                                <svg class="" id="zz"></svg>
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="d-flex flex-row-reverse mt-3">
+            <div class=" me-5 pe-5 mb-3">
+                <button (click)="printdwb()" class="btn mybttn w-100 ms-3 printy">PRINT</button>
+            </div>
+            <div>
+                <button (click)="backtoform3()" class="btn mybttn w-100 ok">OK</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</section>

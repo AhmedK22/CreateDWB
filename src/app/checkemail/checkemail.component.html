@@ -1,0 +1,13 @@
+<section class="sectionn d-flex align-items-center justify-content-center  ">
+    <div>
+        <p class="fs-3 text-dark">enter your email</p>
+    </div>
+    <form [formGroup]="myform" (ngSubmit)="checkemaill(myform)">
+        <label class="form-label" class="text-white">email</label>
+        <input class="form-control" type="email" formControlName="email"><br>
+        <div class="form-text fs-3  text-danger" *ngIf=messageerror>
+            {{messageerror}}
+        </div>
+        <button class="btn btn-secondary  mt-2" type="submit ">submit</button>
+    </form>
+</section>

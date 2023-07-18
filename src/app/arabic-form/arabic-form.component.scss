@@ -1,0 +1,64 @@
+.mylastpolica {
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    bottom: 0%;
+    display: none;
+}
+
+.mypolica {
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    bottom: 0%;
+    display: none;
+}
+
+.fullpolica {
+    // position: fixed;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    bottom: 0%;
+    flex-direction: column;
+    display: none;
+}
+
+.myfull {
+    flex-direction: column;
+}
+
+.heading {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.heading h2 {
+    font-size: 5rem;
+    font-weight: 900;
+    color: #f1f1f1;
+}
+
+.heading h3 {
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.mybttn {
+    background-color: #FF5733;
+}
+
+th,
+td {
+    border: 2px dashed black;
+}
+
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+.vv {
+    flex-direction: column;
+}
